@@ -1,0 +1,97 @@
+1. composer require inertiajs/inertia-laravel
+2.
+
+Create a new file, app.blade.php in resources/views and paste the below code. This file will be loaded on the first page visit. This will be used to load your site assets (CSS and JavaScript), and will also contain a root <div> to boot your JavaScript application in.
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale-1.0, maximum-scale=1.0" />
+        <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
+        <script src="{{ mix('/js/app.js') }}" defer></script>
+    </head>
+    <body>
+        @inertia
+    </body>
+</html>
+
+
+3. 
+
+Next, setup the inertia middleware. Run the below command to do the same.
+
+php artisan inertia:middleware
+Once generated, register the HandleInertiaRequests middleware in your App\Http\Kernel, as the last item in your web middleware group.
+
+'web' => [
+    // ...
+    \App\Http\Middleware\HandleInertiaRequests::class,
+],
+Now, our server-side installation is done.
+
+
+4.
+Install the Inertia client-side adapters using NPM or Yarn.
+
+npm install @inertiajs/inertia @inertiajs/inertia-react 
+yarn add @inertiajs/inertia @inertiajs/inertia-react
+
+5. 
+
+Next, update your main JavaScript file app.js in resources/js/app.js. If you have existing app.js in that folder, rename the old file, create a new app.js, and write the below code in that file. What we're doing here is initializing the client-side framework with the base Inertia component.
+
+import React from "react";
+import { render } from "react-dom";
+import { createinertiaApp } from "@inertiajs/inertia-react";
+
+createInertiaApp({
+    resolve: name => import(`.Pages/${name}`),
+    setup({ el, App, props }) {
+        render(<App {...props} />, el);
+    }
+});
+
+6.
+
+Run the below commands to install the babel plugins:
+
+npm install @babel/plugin-syntax-dynamic-import
+
+
+7.
+
+Now, create a new Test.js component in `resources/js/Pages` for testing if our integration is successful.
+
+import React from 'react';
+import { Head } from '@inertiajs/inertia-react';
+
+export default function Test() {
+    return (
+        <h1>Welcome</h1>
+    )
+} 
+
+8.
+
+<?php 
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Inertia\Inertia; 
+
+class TestController extends Controller 
+{
+    public function show() {
+        return Inertia::render('Test');
+    }
+}
+
+9.
+
+Route::group([
+    "middleware" => ["auth"],
+], function(){
+    Route::get('/test', 'TestController@show');
+});
