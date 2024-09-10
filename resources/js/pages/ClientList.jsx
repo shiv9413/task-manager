@@ -1,13 +1,28 @@
-import React from 'react';
-import { Inertia } from '@inertiajs/inertia';
+import React, { useEffect } from 'react';
+import $ from 'jquery';
+import 'datatables.net-bs4/css/dataTables.bootstrap4.min.css';
+import 'datatables.net-bs4';
 
 export default function ClientList({ clients }) {
+    useEffect(() => {
+        // Initialize DataTables
+        //$('#clientTable').DataTable();
+        $('#clientTable').DataTable({
+            responsive: true
+        });
+
+        // Clean up the DataTable on component unmount
+        return () => {
+            $('#clientTable').DataTable().destroy();
+        };
+    }, []);
+
     return (
         <div className="container">
             <div className="row">
                 <div className="col-12">
                     <h1 className="my-4">Registered Client</h1>
-                    <table className="table table-bordered table-striped">
+                    <table id="clientTable" className="table table-bordered table-striped dt-responsive nowrap">
                         <thead className="thead-dark">
                             <tr>
                                 <th>Name</th>
@@ -17,7 +32,6 @@ export default function ClientList({ clients }) {
                                 <th>Enquiry</th>
                                 <th>Notes</th>
                                 <th>Registration Date</th>
-                                {/* <th>Actions</th> */}
                             </tr>
                         </thead>
                         <tbody>
@@ -30,10 +44,6 @@ export default function ClientList({ clients }) {
                                     <td>{client.enquiry}</td>
                                     <td>{client.notes}</td>
                                     <td>{client.created_at}</td>
-                                    {/* <td>
-                                        <button className="btn btn-primary btn-sm mr-2">Edit</button>
-                                        <button className="btn btn-danger btn-sm">Delete</button>
-                                    </td> */}
                                 </tr>
                             ))}
                         </tbody>

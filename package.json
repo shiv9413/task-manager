@@ -14,10 +14,15 @@
     "dependencies": {
         "@inertiajs/inertia": "^0.11.1",
         "@inertiajs/inertia-react": "^0.8.1",
-        "@inertiajs/progress": "^0.2.7",
+        "@inertiajs/progress": "^0.1.2",
         "@vitejs/plugin-react": "^4.3.1",
         "bootstrap": "^5.3.3",
+        "datatables.net": "^2.1.6",
+        "datatables.net-bs4": "^2.1.6",
+        "datatables.net-responsive": "^3.0.3",
+        "datatables.net-responsive-bs4": "^3.0.3",
+        "jquery": "^3.7.1",
         "react-dom": "^18.3.1",
-        "sweetalert2": "^11.13.2"
+        "sweetalert2": "^11.6.13"
     }
 }

@@ -11,12 +11,19 @@
       "resources/js/pages/ClientList.jsx",
       "resources/js/pages/Form.jsx"
     ],
-    "file": "assets/app-b5fdf584.js",
+    "file": "assets/app-c13199e7.js",
     "isEntry": true,
     "src": "resources/js/app.jsx"
   },
+  "resources/js/pages/ClientList.css": {
+    "file": "assets/ClientList-b7a54e79.css",
+    "src": "resources/js/pages/ClientList.css"
+  },
   "resources/js/pages/ClientList.jsx": {
-    "file": "assets/ClientList-a6eb6ea7.js",
+    "css": [
+      "assets/ClientList-b7a54e79.css"
+    ],
+    "file": "assets/ClientList-4f68c1ea.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -24,7 +31,7 @@
     "src": "resources/js/pages/ClientList.jsx"
   },
   "resources/js/pages/Form.jsx": {
-    "file": "assets/Form-5d70d500.js",
+    "file": "assets/Form-3d6f4ec0.js",
     "imports": [
       "resources/js/app.jsx"
     ],
