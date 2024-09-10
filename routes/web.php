@@ -20,3 +20,4 @@ use App\Http\Controllers\FormController;
 
 Route::get('/',[FormController::class,'index']);
 Route::post('/store', [FormController::class, 'store']);
+Route::get('/clients', [FormController::class, 'ClientList']);

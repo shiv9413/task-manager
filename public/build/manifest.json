@@ -8,14 +8,23 @@
       "assets/app-45676771.css"
     ],
     "dynamicImports": [
+      "resources/js/pages/ClientList.jsx",
       "resources/js/pages/Form.jsx"
     ],
-    "file": "assets/app-a7bda327.js",
+    "file": "assets/app-b5fdf584.js",
     "isEntry": true,
     "src": "resources/js/app.jsx"
   },
+  "resources/js/pages/ClientList.jsx": {
+    "file": "assets/ClientList-a6eb6ea7.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/pages/ClientList.jsx"
+  },
   "resources/js/pages/Form.jsx": {
-    "file": "assets/Form-8f0d4431.js",
+    "file": "assets/Form-5d70d500.js",
     "imports": [
       "resources/js/app.jsx"
     ],

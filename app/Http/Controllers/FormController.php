@@ -94,6 +94,13 @@ class FormController extends Controller
       }
     }
 
+    public function ClientList(){
+        $clients = Client::all();
+        return Inertia::render('ClientList', [
+            'clients' => $clients
+        ]);
+    }
+
     /**
      * Display the specified resource.
      *
