@@ -23,5 +23,6 @@ class Client extends Model
 
     protected $casts = [
         'extra_option' => 'array',
+        'created_at' => 'datetime:Y-m-d H:i:s',
     ];
 }
