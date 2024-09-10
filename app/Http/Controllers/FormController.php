@@ -73,21 +73,24 @@ class FormController extends Controller
             ],
         ]);
 
-        return response()->json([
-            'message' => 'Client information saved successfully.',
-            'client' => $client,
-            'success' => true
-        ], 200);
+        // return response()->json([
+        //     'message' => 'Client information saved successfully.',
+        //     'client' => $client,
+        //     'success' => true
+        // ], 200);
+        return redirect()->back()->with('message', 'Client information saved successfully.');
 
      } catch (\Exception $e) {
         // Log the exception message
         \Log::error('Error saving client information: ' . $e->getMessage());
 
-        return response()->json([
-            'message' => 'An error occurred while saving client information.',
-            'error' => $e->getMessage(),
-            'success' => false
-        ], 500);
+        return redirect()->back()->with('message', 'An error occurred while saving client information');
+
+        // return response()->json([
+        //     'message' => 'An error occurred while saving client information.',
+        //     'error' => $e->getMessage(),
+        //     'success' => false
+        // ], 500);
       }
     }
 
